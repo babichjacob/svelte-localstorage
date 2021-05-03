@@ -49,7 +49,7 @@ The store creators described above are all built from the base store creator. Yo
 ```svelte
 <script>
 	import { localStorageStore } from "@babichjacob/svelte-localstorage/base";
-    import { isServer } from "@some-framework/metadata";
+	import { isServer } from "@some-framework/metadata";
 
 	const textInput = localStorageStore("text-input", "Initial value", !isServer);
 </script>
