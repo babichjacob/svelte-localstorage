@@ -1,0 +1,28 @@
+lockfileVersion: 5.3
+
+importers:
+
+  .:
+    specifiers:
+      typescript: ^4.2.4
+    devDependencies:
+      typescript: 4.2.4
+
+  projects/svelte-localstorage:
+    specifiers:
+      svelte: ^3.38.1
+    dependencies:
+      svelte: 3.38.1
+
+packages:
+
+  /svelte/3.38.1:
+    resolution: {integrity: sha512-N3XLAyfzqrFxwRLevBeW7Dke9ZlHRVGSIed5abo4Drvj+zvd2OyWpFa1x4nQUc8Lnvt4Kcn8/5le1peRDybNqg==}
+    engines: {node: '>= 8'}
+    dev: false
+
+  /typescript/4.2.4:
+    resolution: {integrity: sha512-V+evlYHZnQkaz8TRBuxTA92yZBPotr5H+WhQ7bD3hZUndx5tGOa1fuCgeSjxAzM1RiN5IzvadIXTVefuuwZCRg==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true

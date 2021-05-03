@@ -1,0 +1,29 @@
+name: Publish to NPM every tag (i.e. new version)
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  publish:
+    strategy:
+      matrix:
+        node-version: [16]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmjs.org/
+      - uses: pnpm/action-setup@v1.2.1
+        with:
+          version: 6.2.x
+      - run: pnpm install
+      - run: pnpm check
+      - run: pnpm -r publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
