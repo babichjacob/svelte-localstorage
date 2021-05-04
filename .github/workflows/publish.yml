@@ -2,13 +2,12 @@ name: Publish to NPM every tag (i.e. new version)
 
 on:
   push:
-    tags:
-      - '*'
     branches:
       - main
 
 jobs:
   publish:
+    if: "${{ github.ref.startswith('refs/tags/') }}"
     strategy:
       matrix:
         node-version: [16]
