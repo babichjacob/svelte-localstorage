@@ -1,6 +1,6 @@
 {
 	"name": "@babichjacob/svelte-localstorage",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Svelte writable stores that automatically synchronize with localStorage",
 	"author": "J / Jacob Babich <jacobbabichpublic+git@gmail.com>",
 	"keywords": [
