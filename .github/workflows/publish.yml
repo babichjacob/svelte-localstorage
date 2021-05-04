@@ -7,7 +7,7 @@ on:
 
 jobs:
   publish:
-    if: "${{ github.ref.startswith('refs/tags/') }}"
+    if: startsWith(github.ref, 'refs/tags/')
     strategy:
       matrix:
         node-version: [16]
