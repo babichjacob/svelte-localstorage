@@ -1,5 +1,5 @@
 import { browser } from "$app/env";
-import { localStorageStore as base } from "./base";
+import { localStorageStore as base } from "./base.js";
 
 /**
  * @template Item
