@@ -31,7 +31,7 @@ Use the writable store creator from `@babichjacob/svelte-localstorage/sapper`:
 <input bind:value={$textInput} type="text">
 ```
 
-## ⚡️ Svelte without an SSR framework
+## 🌐 Svelte in the browser only
 Use the writable store creator from `@babichjacob/svelte-localstorage/browser`:
 
 ```svelte
@@ -43,8 +43,21 @@ Use the writable store creator from `@babichjacob/svelte-localstorage/browser`:
 <input bind:value={$textInput} type="text">
 ```
 
-## ⚡️ Custom SSR framework
-The store creators described above are all built from the base store creator. You can use it with any SSR framework by providing the `browser` argument with the correct value:
+## ⚡️ Generic SSR framework
+The store creators above are specialized for the most common environments. 
+
+```svelte
+<script>
+	import { localStorageStore } from "@babichjacob/svelte-localstorage/ssr";
+
+	const textInput = localStorageStore("text-input", "Initial value");
+</script>
+
+<input bind:value={$textInput} type="text">
+```
+
+## 🗺 Custom environment
+The store creators described above are all built from the base store creator. You can use it in any environment by providing the `browser` argument with the correct value:
 
 ```svelte
 <script>
