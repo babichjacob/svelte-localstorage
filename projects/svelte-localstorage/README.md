@@ -44,7 +44,7 @@ Use the writable store creator from `@babichjacob/svelte-localstorage/browser`:
 ```
 
 ## ⚡️ Generic SSR framework
-The store creators above are specialized for the most common environments. 
+The store creators above are specialized for the most common environments. This one *probably* works in place of all of the above, so you could possibly use this no matter what the situation is.
 
 ```svelte
 <script>
