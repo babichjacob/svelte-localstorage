@@ -6,4 +6,4 @@ import { localStorageStore as base } from "./base.js";
  * @param {Item} initial The initial value of the writable store
  * @returns {import("svelte/store").Writable<Item>} A writable store that synchronizes to localStorage
  */
-export const localStorageStore = (key, initial) => base(key, initial, !import.meta.env.SSR);
+export const localStorageStore = (key, initial) => base(key, initial, typeof window !== "undefined");

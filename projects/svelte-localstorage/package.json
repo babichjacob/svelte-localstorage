@@ -24,6 +24,7 @@
 		"base.js",
 		"browser.js",
 		"sapper.js",
+		"ssr.js",
 		"svelte-kit.js"
 	],
 	"type": "module",
