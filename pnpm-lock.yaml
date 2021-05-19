@@ -10,14 +10,14 @@ importers:
 
   projects/svelte-localstorage:
     specifiers:
-      svelte: ^3.38.1
+      svelte: ^3.38.2
     dependencies:
-      svelte: 3.38.1
+      svelte: 3.38.2
 
 packages:
 
-  /svelte/3.38.1:
-    resolution: {integrity: sha512-N3XLAyfzqrFxwRLevBeW7Dke9ZlHRVGSIed5abo4Drvj+zvd2OyWpFa1x4nQUc8Lnvt4Kcn8/5le1peRDybNqg==}
+  /svelte/3.38.2:
+    resolution: {integrity: sha512-q5Dq0/QHh4BLJyEVWGe7Cej5NWs040LWjMbicBGZ+3qpFWJ1YObRmUDZKbbovddLC9WW7THTj3kYbTOFmU9fbg==}
     engines: {node: '>= 8'}
     dev: false
 
