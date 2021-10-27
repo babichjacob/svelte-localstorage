@@ -28,7 +28,7 @@
 		"svelte-kit.js"
 	],
 	"type": "module",
-	"dependencies": {
-		"svelte": "^3.38.2"
+	"peerDependencies": {
+		"svelte": "^3.44.0"
 	}
 }
