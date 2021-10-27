@@ -8,7 +8,24 @@ npm install --save-dev @babichjacob/svelte-localstorage
 ```
 
 ## 🧰 SvelteKit
-Use the writable store creator from `@babichjacob/svelte-localstorage/svelte-kit`:
+Because this package relies on SvelteKit's generated code, you have to prevent Vite from bundling it in advance ([which results in a build error](https://github.com/babichjacob/svelte-localstorage/issues/18)):
+```js
+// svelte.config.js
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	kit: {
+		// ...
+		vite: {
+			optimizeDeps: {
+				exclude: ["@babichjacob/svelte-localstorage"],
+			},
+		}
+	}
+};
+```
+
+Then, you can use the writable store creator from `@babichjacob/svelte-localstorage/svelte-kit`:
 
 ```svelte
 <script>
