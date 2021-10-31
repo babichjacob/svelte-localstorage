@@ -20,6 +20,9 @@ const config = {
 			optimizeDeps: {
 				exclude: ["@babichjacob/svelte-localstorage"],
 			},
+			ssr: {
+				noExternal: ["@babichjacob/svelte-localstorage"],
+			},
 		}
 	}
 };
