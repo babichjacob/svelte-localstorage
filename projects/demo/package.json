@@ -10,7 +10,7 @@
     "prepare": "svelte-kit sync"
   },
   "devDependencies": {
-    "@babichjacob/svelte-localstorage": "workspace:0.2.0",
+    "@babichjacob/svelte-localstorage": "workspace:*",
     "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
     "svelte": "^3.49.0",
