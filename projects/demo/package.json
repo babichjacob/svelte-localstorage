@@ -1,20 +1,20 @@
 {
   "name": "demo",
+  "private": true,
   "version": "0.0.1",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
+    "dev": "vite dev",
+    "build": "vite build",
     "package": "svelte-kit package",
-    "preview": "svelte-kit preview",
+    "preview": "vite preview",
     "prepare": "svelte-kit sync"
   },
   "devDependencies": {
-    "@babichjacob/svelte-localstorage": "workspace:*",
-    "@sveltejs/adapter-auto": "next",
-    "@sveltejs/adapter-static": "^1.0.0-next.29",
+    "@babichjacob/svelte-localstorage": "workspace:0.2.0",
+    "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
-    "svelte": "^3.46.4",
-    "svelte-local-storage-store": "^0.2.6"
+    "svelte": "^3.49.0",
+    "vite": "^3.0.2"
   },
   "type": "module"
 }
