@@ -10,21 +10,18 @@ npm install --save-dev @babichjacob/svelte-localstorage
 ## 🧰 SvelteKit
 Because this package relies on SvelteKit's generated code, you have to prevent Vite from bundling it in advance ([which results in a build error](https://github.com/babichjacob/svelte-localstorage/issues/18)):
 ```js
-// svelte.config.js
+// vite.config.js
+import { sveltekit } from "@sveltejs/kit/vite";
 
-/** @type {import('@sveltejs/kit').Config} */
+/** @type {import('vite').UserConfig} */
 const config = {
-	kit: {
-		// ...
-		vite: {
-			optimizeDeps: {
-				exclude: ["@babichjacob/svelte-localstorage"],
-			},
-			ssr: {
-				noExternal: ["@babichjacob/svelte-localstorage"],
-			},
-		}
-	}
+  	plugins: [sveltekit()],
+	optimizeDeps: {
+		exclude: ["@babichjacob/svelte-localstorage"],
+	},
+	ssr: {
+		noExternal: ["@babichjacob/svelte-localstorage"],
+	},
 };
 ```
 
