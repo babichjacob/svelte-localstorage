@@ -1,7 +1,7 @@
 {
   "name": "@babichjacob/svelte-localstorage-workspace-root",
   "private": true,
-  "version": "0.4.2",
+  "version": "0.4.4",
   "description": "Svelte writable stores that automatically synchronize with localStorage",
   "author": "J / Jacob Babich <jacobbabichpublic+git@gmail.com>",
   "keywords": [
