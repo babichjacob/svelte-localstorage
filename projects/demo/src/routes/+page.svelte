@@ -1,7 +1,3 @@
-<script context="module">
-  export const prerender = true;
-</script>
-
 <script>
   import { localStorageStore } from "@babichjacob/svelte-localstorage/svelte-kit";
   const textInput = localStorageStore("text-input", "Initial value");
