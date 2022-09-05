@@ -1,30 +1,30 @@
 {
-	"name": "@babichjacob/svelte-localstorage-workspace-root",
-	"private": true,
-	"version": "0.3.0",
-	"description": "Svelte writable stores that automatically synchronize with localStorage",
-	"author": "J / Jacob Babich <jacobbabichpublic+git@gmail.com>",
-	"keywords": [
-		"svelte",
-		"sveltekit",
-		"svelte-kit",
-		"sapper",
-		"localstorage",
-		"local-storage"
-	],
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/babichjacob/svelte-localstorage.git"
-	},
-	"bugs": {
-		"url": "https://github.com/babichjacob/svelte-localstorage/issues"
-	},
-	"homepage": "https://github.com/babichjacob/svelte-localstorage",
-	"scripts": {
-		"check": "tsc --project jsconfig.json"
-	},
-	"devDependencies": {
-		"typescript": "^4.7.4"
-	}
+  "name": "@babichjacob/svelte-localstorage-workspace-root",
+  "private": true,
+  "version": "0.4.0",
+  "description": "Svelte writable stores that automatically synchronize with localStorage",
+  "author": "J / Jacob Babich <jacobbabichpublic+git@gmail.com>",
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "svelte-kit",
+    "sapper",
+    "localstorage",
+    "local-storage"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/babichjacob/svelte-localstorage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/babichjacob/svelte-localstorage/issues"
+  },
+  "homepage": "https://github.com/babichjacob/svelte-localstorage",
+  "scripts": {
+    "check": "tsc --project jsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
 }
