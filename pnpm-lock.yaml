@@ -4,9 +4,9 @@ importers:
 
   .:
     specifiers:
-      typescript: ^4.8.2
+      typescript: ~4.7.4
     devDependencies:
-      typescript: 4.8.2
+      typescript: 4.7.4
 
   projects/demo:
     specifiers:
@@ -548,8 +548,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /typescript/4.8.2:
-    resolution: {integrity: sha512-C0I1UsrrDHo2fYI5oaCGbSejwX4ch+9Y5jTQELvovfmFkK3HHSZJB8MSJcWLmCUBzQBchCrZ9rMRV6GuNrvGtw==}
+  /typescript/4.7.4:
+    resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
