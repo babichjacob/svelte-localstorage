@@ -7,6 +7,20 @@ This library for Svelte provides writable stores that automatically synchronize 
 npm install --save-dev @babichjacob/svelte-localstorage
 ```
 
+### ⌨️ TypeScript
+This package uses JSDoc for types and documentation, so an extra step is needed to use it in TypeScript projects [for now](https://github.com/babichjacob/svelte-localstorage/issues/22). Configure your `tsconfig.json` so that it has `compilerOptions.maxNodeModuleJsDepth` set to at least 1:
+```json
+// tsconfig.json
+{
+	// When using SvelteKit: "extends": "./.svelte-kit/tsconfig.json",
+	"compilerOptions": {
+		// Other options...
+		"maxNodeModuleJsDepth": 1
+	}
+}
+```
+
+
 ## 🧰 SvelteKit
 Because this package relies on SvelteKit's generated code, you have to prevent Vite from bundling it in advance ([which results in a build error](https://github.com/babichjacob/svelte-localstorage/issues/18)):
 ```js
