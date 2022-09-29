@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@babichjacob/svelte-localstorage": "workspace:0.4.5",
+    "@babichjacob/svelte-localstorage": "workspace:0.5.0",
     "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
     "svelte": "^3.50.1",
