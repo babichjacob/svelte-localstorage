@@ -9,7 +9,7 @@ npm install --save-dev @babichjacob/svelte-localstorage
 
 ### ⌨️ TypeScript
 This package uses JSDoc for types and documentation, so an extra step is needed to use it in TypeScript projects [for now](https://github.com/babichjacob/svelte-localstorage/issues/22). Configure your `tsconfig.json` so that it has `compilerOptions.maxNodeModuleJsDepth` set to at least 1:
-```json
+```jsonc
 // tsconfig.json
 {
 	// When using SvelteKit: "extends": "./.svelte-kit/tsconfig.json",
