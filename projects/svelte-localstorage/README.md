@@ -2,112 +2,118 @@
 
 This library for Svelte provides writable stores that automatically synchronize with `localStorage`.
 
+It has been tested to work with Vite, with or without SvelteKit. It may also work with any other bundler that respects [`exports` maps](https://nodejs.org/api/packages.html#package-entry-points).
+
 ## 💻 Installation
+
 ```sh
 npm install --save-dev @babichjacob/svelte-localstorage
 ```
 
 ### ⌨️ TypeScript
+
 This package uses JSDoc for types and documentation, so an extra step is needed to use it in TypeScript projects [for now](https://github.com/babichjacob/svelte-localstorage/issues/22). Configure your `tsconfig.json` so that it has `compilerOptions.maxNodeModuleJsDepth` set to at least 1:
+
 ```jsonc
 // tsconfig.json
 {
-	// When using SvelteKit: "extends": "./.svelte-kit/tsconfig.json",
-	"compilerOptions": {
-		// Other options...
-		"maxNodeModuleJsDepth": 1
-	}
+  // When using SvelteKit: "extends": "./.svelte-kit/tsconfig.json",
+  "compilerOptions": {
+    // Other options...
+    "maxNodeModuleJsDepth": 1
+  }
 }
 ```
 
+## 🛠 Usage
 
-## 🧰 SvelteKit
-Because this package relies on SvelteKit's generated code, you have to prevent Vite from bundling it in advance ([which results in a build error](https://github.com/babichjacob/svelte-localstorage/issues/18)):
+Import and use the writable store creator from `@babichjacob/svelte-localstorage`:
+
+```svelte
+<script>
+	import { localStorageWritable } from "@babichjacob/svelte-localstorage";
+	const textInput = localStorageWritable("text-input", "Initial value");
+</script>
+
+<input bind:value={$textInput} type="text">
+```
+
+You can create stores with `localStorageWritable` and read from them without having to check whether you're in the browser or on the server. You generally should only write while in the browser.
+
+### ⚙️ Options
+
+- `key`: what key in `localStorage` to synchronize with
+- `initial`: the initial value of the writable store
+- `serde` (optional): how to serialize and deserialize the store value
+  - `serialize` (default `JSON.stringify`): how to create a string representation of the store value to put in `localStorage`
+  - `deserialize` (default `JSON.parse`): how to convert the string representation in `localStorage` to a value to put in the store
+
+### 💱 Serialization and deserialization
+
+Only strings can be put in `localStorage`, so whatever values you want this store to have must be representable as strings somehow. JSON is the default format used, since it supports common types. You can pass a custom `serialize` and `deserialize` function for objects that `JSON.stringify` and `JSON.parse` can't handle, like custom `class`es:
+
 ```js
-// vite.config.js
-import { sveltekit } from "@sveltejs/kit/vite";
+import { localStorageWritable } from "@babichjacob/svelte-localstorage";
 
-/** @type {import('vite').UserConfig} */
-const config = {
-  	plugins: [sveltekit()],
-	optimizeDeps: {
-		exclude: ["@babichjacob/svelte-localstorage"],
-	},
-	ssr: {
-		noExternal: ["@babichjacob/svelte-localstorage"],
-	},
-};
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+}
+
+const point = localStorageWritable("point", new Point(0, 0), {
+  // You can still use JSON.stringify and JSON.parse to help, if you want
+  serialize: (pnt) => JSON.stringify([pnt.x, pnt.y]),
+  deserialize(str) {
+    const [x, y] = JSON.parse(str);
+    return new Point(x, y);
+  },
+});
 ```
 
-Then, you can use the writable store creator from `@babichjacob/svelte-localstorage/svelte-kit`:
+### 🗜️ Compression and decompression
 
-```svelte
+You can further utilize `serialize` and `deserialize` to store the data compressed in `localStorage`, perhaps to stay under [the 5 MB limit](https://storage.spec.whatwg.org/#storage-endpoint-quota) your website / app has available.
+
+Any compression algorithm can be used, but [`lz-string`](https://www.npmjs.com/package/lz-string) is chosen for example:
+
+```js
 <script>
-	import { localStorageStore } from "@babichjacob/svelte-localstorage/svelte-kit";
-	const textInput = localStorageStore("text-input", "Initial value");
+  import { localStorageWritable } from "@babichjacob/svelte-localstorage";
+
+  import lzString from "lz-string";
+
+  const draft = localStorageWritable("blog-post-draft", { time: new Date(), content: "" }, {
+    serialize: (obj) => {
+      const serialized = ...; // create a string representation somehow
+      const compressed = lzString.compressToUTF16(serialized);
+      return compressed;
+    },
+    deserialize: (text) => {
+      const decompressed = lzString.decompressFromUTF16(text);
+      const deserialized = ...; // convert the string representation to an object somehow
+      return deserialized;
+    },
+  });
 </script>
 
-<input bind:value={$textInput} type="text">
-```
+<h1>Write a new blog post</h1>
+<h2>Draft started at {$draft.time}</h2>
 
-## 🌱 Sapper
-Use the writable store creator from `@babichjacob/svelte-localstorage/sapper`:
-
-```svelte
-<script>
-	import { localStorageStore } from "@babichjacob/svelte-localstorage/sapper";
-	const textInput = localStorageStore("text-input", "Initial value");
-</script>
-
-<input bind:value={$textInput} type="text">
-```
-
-## 🌐 Svelte in the browser only
-Use the writable store creator from `@babichjacob/svelte-localstorage/browser`:
-
-```svelte
-<script>
-	import { localStorageStore } from "@babichjacob/svelte-localstorage/browser";
-	const textInput = localStorageStore("text-input", "Initial value");
-</script>
-
-<input bind:value={$textInput} type="text">
-```
-
-## ⚡️ Generic SSR framework
-The store creators above are specialized for the most common environments. This one *probably* works in place of all of the above, so you could possibly use this no matter what the situation is.
-
-```svelte
-<script>
-	import { localStorageStore } from "@babichjacob/svelte-localstorage/ssr";
-
-	const textInput = localStorageStore("text-input", "Initial value");
-</script>
-
-<input bind:value={$textInput} type="text">
-```
-
-## 🗺 Custom environment
-The store creators described above are all built from the base store creator. You can use it in any environment by providing the `browser` argument with the correct value:
-
-```svelte
-<script>
-	import { localStorageStore } from "@babichjacob/svelte-localstorage/base";
-	import { isServer } from "@some-framework/metadata";
-
-	const textInput = localStorageStore("text-input", "Initial value", !isServer);
-</script>
-
-<input bind:value={$textInput} type="text">
+<textarea bind:value={$draft.content}></textarea>
 ```
 
 ## 😵 Help! I have a question
+
 Create an issue and I'll try to help.
 
 ## 😡 Fix! There is something that needs improvement
+
 Create an issue or pull request and I'll try to fix.
 
 ## 📄 License
+
 MIT
 
 ## 🙏 Attribution

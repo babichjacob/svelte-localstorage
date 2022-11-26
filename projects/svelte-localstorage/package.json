@@ -20,27 +20,15 @@
     "url": "https://github.com/babichjacob/svelte-localstorage/issues"
   },
   "homepage": "https://github.com/babichjacob/svelte-localstorage",
-  "files": [
-    "base.js",
-    "browser.js",
-    "sapper.js",
-    "ssr.js",
-    "svelte-kit.js"
-  ],
+  "exports": {
+    ".": {
+      "browser": "./browser.js",
+      "node": "./server.js",
+      "default": "./server.js"
+    }
+  },
   "type": "module",
   "dependencies": {
     "svelte": "^3.50.1"
-  },
-  "peerDependencies": {
-    "sapper": "^0.29.3",
-    "@sveltejs/kit": "next"
-  },
-  "peerDependenciesMeta": {
-    "@sveltejs/kit": {
-      "optional": true
-    },
-    "sapper": {
-      "optional": true
-    }
   }
 }

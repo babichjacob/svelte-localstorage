@@ -11,6 +11,7 @@
     "@babichjacob/svelte-localstorage": "workspace:0.5.0",
     "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
+    "lz-string": "^1.4.4",
     "svelte": "^3.50.1",
     "vite": "^3.1.4"
   },
