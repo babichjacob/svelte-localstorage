@@ -10,7 +10,7 @@ importers:
 
   projects/demo:
     specifiers:
-      '@babichjacob/svelte-localstorage': workspace:1.0.0
+      '@babichjacob/svelte-localstorage': workspace:1.0.1
       '@sveltejs/adapter-static': next
       '@sveltejs/kit': next
       lz-string: ^1.4.4
