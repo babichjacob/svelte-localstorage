@@ -13,7 +13,7 @@
     "@sveltejs/kit": "next",
     "lz-string": "^1.4.4",
     "svelte": "^3.53.1",
-    "vite": "^3.2.4"
+    "vite": "^3.2.7"
   },
   "type": "module"
 }
