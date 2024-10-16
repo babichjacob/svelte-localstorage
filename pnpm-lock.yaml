@@ -15,7 +15,7 @@ importers:
   projects/demo:
     devDependencies:
       '@babichjacob/svelte-localstorage':
-        specifier: workspace:1.1.1
+        specifier: workspace:1.1.2
         version: link:../svelte-localstorage
       '@sveltejs/adapter-static':
         specifier: next
