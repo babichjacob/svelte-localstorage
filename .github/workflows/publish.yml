@@ -9,19 +9,19 @@ jobs:
   publish:
     strategy:
       matrix:
-        node-version: [18]
+        node-version: [22]
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org/
-      - uses: pnpm/action-setup@v2.2.2
+      - uses: pnpm/action-setup@v4.0.0
         with:
-          version: 7.x
+          version: 9.x
       - run: pnpm install
       - run: pnpm check
       - run: pnpm -r publish --access public --no-git-checks
