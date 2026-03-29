@@ -3,6 +3,8 @@
 node_modules
 /build
 /.svelte-kit
+/dist
+*.tgz
 /package
 .env
 .env.*
