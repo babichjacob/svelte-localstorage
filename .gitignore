@@ -1,2 +1,11 @@
+.DS_Store
 .history
 node_modules
+/build
+/.svelte-kit
+/dist
+*.tgz
+/package
+.env
+.env.*
+!.env.example

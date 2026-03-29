@@ -14,6 +14,9 @@ export const localStorageWritable = (
   initial,
   { serialize = JSON.stringify, deserialize = JSON.parse } = {}
 ) => {
+  // Handle non-browser environments
+  if (typeof localStorage === 'undefined') return writable(initial);
+
   let currentValue = initial;
 
   /**
