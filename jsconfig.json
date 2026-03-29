@@ -3,7 +3,7 @@
 		"checkJs": true,
 		"maxNodeModuleJsDepth": 0,
 		"module": "esnext",
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"noEmit": true,
 		"resolveJsonModule": true,
 		"strict": true,
