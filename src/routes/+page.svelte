@@ -1,5 +1,5 @@
 <script>
-  import { localStorageWritable } from "@babichjacob/svelte-localstorage";
+  import { localStorageWritable } from "$lib/persist";
   const textInput = localStorageWritable("text-input", "Initial value");
 
   class Point {
