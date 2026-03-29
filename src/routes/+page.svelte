@@ -52,4 +52,4 @@
 
 <span>({$point.x}, {$point.y})</span>
 
-<textarea bind:value={$compressedText} />
+<textarea bind:value={$compressedText}></textarea>
