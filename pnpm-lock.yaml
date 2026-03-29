@@ -37,7 +37,7 @@ importers:
         version: 8.0.3(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)(esbuild@0.27.4)
 
   projects/svelte-localstorage:
-    dependencies:
+    devDependencies:
       svelte:
         specifier: ^5.55.0
         version: 5.55.0

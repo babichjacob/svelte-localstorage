@@ -28,7 +28,10 @@
     }
   },
   "type": "module",
-  "dependencies": {
+  "devDependencies": {
     "svelte": "^5.55.0"
+  },
+  "peerDependencies": {
+    "svelte": "5.x"
   }
 }
