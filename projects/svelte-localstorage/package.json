@@ -29,7 +29,7 @@
   },
   "type": "module",
   "devDependencies": {
-    "svelte": "^5.55.0"
+    "svelte": "^5.55.7"
   },
   "peerDependencies": {
     "svelte": "5.x"
