@@ -1,16 +1,16 @@
 {
-  "name": "@babichjacob/svelte-localstorage-workspace-root",
-  "private": true,
-  "version": "1.0.1",
+  "name": "@babichjacob/svelte-localstorage",
+  "type": "module",
+  "version": "1.1.2",
   "description": "Svelte writable stores that automatically synchronize with localStorage",
   "author": "J / Jacob Babich <jacobbabichpublic+git@gmail.com>",
   "keywords": [
     "svelte",
-    "sveltekit",
-    "svelte-kit",
-    "sapper",
     "localstorage",
-    "local-storage"
+    "local-storage",
+    "svelte-kit",
+    "sveltekit",
+    "sapper"
   ],
   "license": "MIT",
   "repository": {
@@ -21,10 +21,37 @@
     "url": "https://github.com/babichjacob/svelte-localstorage/issues"
   },
   "homepage": "https://github.com/babichjacob/svelte-localstorage",
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    }
+  },
   "scripts": {
-    "check": "tsc --project jsconfig.json"
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepare": "svelte-kit sync || echo ''",
+    "prepack": "svelte-kit sync && svelte-package && publint",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json"
   },
   "devDependencies": {
-    "typescript": "^6.0.2"
+    "@sveltejs/adapter-static": "^3.0.10",
+    "@sveltejs/kit": "^2.55.0",
+    "@sveltejs/package": "^2.5.7",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
+    "lz-string": "^1.5.0",
+    "publint": "^0.3.18",
+    "svelte": "^5.55.0",
+    "svelte-check": "^4.4.5",
+    "vite": "^8.0.3"
+  },
+  "peerDependencies": {
+    "svelte": "5.x"
   }
 }
